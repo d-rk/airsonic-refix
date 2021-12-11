@@ -21,11 +21,11 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent } from '@vue/composition-api'
   import { mapState } from 'vuex'
   import CreatePlaylistBtn from '@/playlist/CreatePlaylistBtn.vue'
 
-  export default Vue.extend({
+  export default defineComponent({
     components: {
       CreatePlaylistBtn,
     },

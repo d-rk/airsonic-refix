@@ -1,5 +1,5 @@
 declare module '*.vue' {
-  import Vue from 'vue'
+  import { defineComponent } from '@vue/composition-api'
   export default Vue
 }
 declare module 'md5-es';

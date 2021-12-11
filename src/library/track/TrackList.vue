@@ -29,7 +29,7 @@
   </BaseTable>
 </template>
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent } from '@vue/composition-api'
   import { mapActions, mapGetters } from 'vuex'
   import CellDuration from '@/library/track/CellDuration.vue'
   import CellArtist from '@/library/track/CellArtist.vue'
@@ -40,7 +40,7 @@
   import BaseTable from '@/library/track/BaseTable.vue'
   import BaseTableHead from '@/library/track/BaseTableHead.vue'
 
-  export default Vue.extend({
+  export default defineComponent({
     components: {
       BaseTableHead,
       BaseTable,

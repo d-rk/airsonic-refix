@@ -4,11 +4,11 @@
   </ContentLoader>
 </template>
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent } from '@vue/composition-api'
   import ArtistList from './ArtistList.vue'
   import { Artist } from '@/shared/api'
 
-  export default Vue.extend({
+  export default defineComponent({
     components: {
       ArtistList,
     },

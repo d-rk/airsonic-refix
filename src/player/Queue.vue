@@ -41,7 +41,7 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent } from '@vue/composition-api'
   import { mapState, mapMutations, mapGetters } from 'vuex'
   import TrackList from '@/library/track/TrackList.vue'
   import BaseTable from '@/library/track/BaseTable.vue'
@@ -53,7 +53,7 @@
   import CellTitle from '@/library/track/CellTitle.vue'
   import CellActions from '@/library/track/CellActions.vue'
 
-  export default Vue.extend({
+  export default defineComponent({
     components: {
       CellActions,
       CellTitle,

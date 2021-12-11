@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueCompositionAPI from '@vue/composition-api'
 import Router from 'vue-router'
 import Vuex from 'vuex'
 import '@/style/main.scss'
@@ -9,6 +10,7 @@ import { setupStore } from '@/shared/store'
 import { API } from '@/shared/api'
 import { AuthService } from '@/auth/service'
 import { setupAudio } from './player/store'
+import { createApp } from '@/compat'
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -17,9 +19,10 @@ declare module 'vue/types/vue' {
   }
 }
 
-Vue.config.productionTip = false
+Vue.use(VueCompositionAPI)
 Vue.use(Router)
 Vue.use(Vuex)
+Vue.config.productionTip = false
 
 const authService = new AuthService()
 const api = new API(authService)
@@ -27,22 +30,22 @@ const router = setupRouter(authService)
 const store = setupStore(authService, api)
 setupAudio(store, api)
 
-Object.entries(components).forEach(([key, value]) => {
-  Vue.component(key, value)
-})
+const app = createApp({ render: (h: any) => h(App), router, store })
 
-Vue.prototype.$auth = authService
-Vue.prototype.$api = api
-Vue.prototype.$formatDuration = formatDuration
+app.config.globalProperties.$auth = authService
+app.config.globalProperties.$api = api
+app.config.globalProperties.$formatDuration = formatDuration
 
-Vue.config.errorHandler = (err) => {
+app.config.errorHandler = (err: any) => {
   // eslint-disable-next-line
   console.error(err)
   store.commit('setError', err)
 }
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+Object.entries(components).forEach(([key, value]) => {
+  app.component(key, value)
+})
+
+app.use(router)
+
+app.mount('#app')
