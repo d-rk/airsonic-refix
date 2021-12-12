@@ -41,7 +41,7 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from '@vue/composition-api'
+  import { defineComponent } from 'vue'
   import { mapState, mapMutations, mapGetters } from 'vuex'
   import TrackList from '@/library/track/TrackList.vue'
   import BaseTable from '@/library/track/BaseTable.vue'

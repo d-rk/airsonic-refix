@@ -21,7 +21,7 @@
         </ContextMenuItem>
       </template>
     </TrackList>
-    <EditModal :visible.sync="showEditModal" :item="playlist" @confirm="updatePlaylist">
+    <EditModal v-model:visible="showEditModal" :item="playlist" @confirm="updatePlaylist">
       <template #title>
         Edit playlist
       </template>
@@ -39,7 +39,7 @@
   </ContentLoader>
 </template>
 <script lang="ts">
-  import { defineComponent } from '@vue/composition-api'
+  import { defineComponent } from 'vue'
   import TrackList from '@/library/track/TrackList.vue'
   import EditModal from '@/shared/components/EditModal.vue'
 

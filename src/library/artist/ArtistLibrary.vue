@@ -1,10 +1,10 @@
 <template>
-  <ContentLoader v-slot :loading="items == null">
+  <ContentLoader :loading="items == null">
     <ArtistList :items="items" />
   </ContentLoader>
 </template>
 <script lang="ts">
-  import { defineComponent } from '@vue/composition-api'
+  import { defineComponent } from 'vue'
   import ArtistList from './ArtistList.vue'
   import { Artist } from '@/shared/api'
 

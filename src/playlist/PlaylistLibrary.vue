@@ -21,7 +21,7 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from '@vue/composition-api'
+  import { defineComponent } from 'vue'
   import { mapState } from 'vuex'
   import CreatePlaylistBtn from '@/playlist/CreatePlaylistBtn.vue'
 

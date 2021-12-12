@@ -22,7 +22,7 @@ import {
   BOverlay,
   BPopover,
   BSidebar,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-3'
 
 export const components = {
   BAlert,

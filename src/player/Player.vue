@@ -105,7 +105,7 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from '@vue/composition-api'
+  import { defineComponent } from 'vue'
   import { mapState, mapGetters, mapActions } from 'vuex'
   import ProgressBar from '@/player/ProgressBar.vue'
 

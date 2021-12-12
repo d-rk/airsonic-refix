@@ -12,7 +12,7 @@
   </b-alert>
 </template>
 <script lang="ts">
-  import { defineComponent } from '@vue/composition-api'
+  import { defineComponent } from 'vue'
   import { mapState, mapMutations } from 'vuex'
 
   export default defineComponent({

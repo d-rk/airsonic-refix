@@ -11,8 +11,7 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from '@vue/composition-api'
-  import Vue from 'vue'
+  import { defineComponent } from 'vue'
 
   export default defineComponent({
     data() {
@@ -25,7 +24,7 @@
     watch: {
       visible: {
         handler(value: boolean) {
-          Vue.set((this.$refs as any).dropdown, 'visible', value)
+          (this.$refs.dropdown as any).visible = value
         }
       }
     },
