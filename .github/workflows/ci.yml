@@ -3,7 +3,7 @@ on:
   - push
 
 env:
-  IMAGE: ${{ github.repository }}
+  IMAGE: randomdwi/airsonic-refix
   VERSION: ${{ github.sha }}
 
 jobs:
