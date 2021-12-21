@@ -10,9 +10,15 @@ export class AuthService {
 
   constructor() {
     this.server = config.serverUrl || localStorage.getItem('server') || ''
-    this.username = localStorage.getItem('username') || ''
-    this.salt = localStorage.getItem('salt') || ''
-    this.hash = localStorage.getItem('hash') || ''
+    this.username = config.username || localStorage.getItem('username') || ''
+
+    if (config.password) {
+      this.salt = randomString()
+      this.hash = md5(config.password + this.salt)
+    } else {
+      this.salt = localStorage.getItem('salt') || ''
+      this.hash = localStorage.getItem('hash') || ''
+    }
   }
 
   private saveSession() {
